@@ -1,10 +1,10 @@
 import { Scene, SceneManager, Camera, GameManager, PhysicsManager } from 'miaam';
+import Abir from '../entities/abir';
 import Akshar from '../entities/akshar';
 import Box from '../entities/box';
 import Noman from '../entities/noman';
 import Player from '../entities/player';
 import Prof from '../entities/prof';
-
 class MainScene extends Scene {
     static preload = {
         assets: [
@@ -14,7 +14,7 @@ class MainScene extends Scene {
                 type: 'map',
             },
         ],
-        entities: [Player, Noman, Prof, Akshar]
+        entities: [Player, Noman, Prof, Akshar, Abir]
     }
     #player;
     #camera;
@@ -34,7 +34,9 @@ class MainScene extends Scene {
         this.addEntity({layer: 'NPC', entity: this.prof});
         this.akshar= new Akshar({name: 'akshar'});
         this.addEntity({layer: 'NPC', entity: this.akshar});
-
+        this.abir= new Abir({name: 'abir'});
+        this.addEntity({layer: 'NPC', entity: this.abir});
+        
         const gameScreen = GameManager.instance.app.screen;
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
         this.#camera.centerOver(this.#player);
