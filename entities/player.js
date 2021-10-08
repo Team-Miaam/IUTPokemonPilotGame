@@ -20,7 +20,7 @@ class Player extends Entity {
 		this.sprite.animationSpeed = 0.1;
 		this.sprite.anchor.set(0, 0.5);
 		this.setupEventListeners();
-		// this.setupBody();
+		this.setupBody();
 	}
 
 	onUpdate(delta) {
