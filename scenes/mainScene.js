@@ -27,7 +27,7 @@ class MainScene extends Scene {
         this.#player = new Player({ name: 'player' });
         this.addEntity({ layer: 'Objects', entity: this.#player });
         this.noman = new Noman({ name: 'noman' });
-        this.addEntity({ layer: 'Objects', entity: this.noman });
+        this.addEntity({ layer: 'NPC', entity: this.noman });
 
         const gameScreen = GameManager.instance.app.screen;
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
