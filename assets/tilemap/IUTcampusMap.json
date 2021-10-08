@@ -299,6 +299,17 @@
                  "y":1824.90909090909
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"isSensor",
+                 "type":"bool",
+                 "value":true
+                }, 
+                {
+                 "name":"physics",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,

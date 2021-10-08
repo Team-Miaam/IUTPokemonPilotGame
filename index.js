@@ -16,7 +16,7 @@ game.createWindow({
 
 scenes.addScene(MainScene);
 scenes.addScene(MosqueScene);
-// scenes.startScene(MainScene.name);
-scenes.startScene(MosqueScene.name);
+scenes.startScene(MainScene.name);
+// scenes.startScene(MosqueScene.name);
 
 document.body.appendChild(game.window);

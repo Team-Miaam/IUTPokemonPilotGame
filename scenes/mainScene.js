@@ -5,6 +5,7 @@ import Box from '../entities/box';
 import Noman from '../entities/noman';
 import Player from '../entities/player';
 import Prof from '../entities/prof';
+import MosqueScene from './mosqueScene';
 class MainScene extends Scene {
     static preload = {
         assets: [
@@ -46,6 +47,8 @@ class MainScene extends Scene {
         scenes.world = MainScene.name;
         PhysicsManager.instance.engine.gravity.y = 0;
 
+        PhysicsManager.instance.events.addEventListener('enterMosque', this.mosqueEntry);
+
     }
 
     onUpdate(ticker) {
@@ -56,6 +59,14 @@ class MainScene extends Scene {
 
     onDestroy() {
         super.onDestroy();
+    }
+
+    mosqueEntry(){
+        console.log('kjbdkbfkj');
+        const scenes = SceneManager.instance;
+        scenes.stopScene();
+        scenes.startScene(MosqueScene.name);
+        
     }
 }
 
