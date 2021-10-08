@@ -1,4 +1,4 @@
-import { Scene, SceneManager, Camera, GameManager, PhysicsManager } from 'miaam';
+import { Scene, SceneManager, Camera, GameManager, PhysicsManager, Dialogue, Keyboard } from 'miaam';
 import Abir from '../entities/abir';
 import Akshar from '../entities/akshar';
 import Box from '../entities/box';
@@ -9,6 +9,11 @@ import MosqueScene from './mosqueScene';
 class MainScene extends Scene {
     static preload = {
         assets: [
+            {
+                name: 'minecraft',
+                url: './assets/fonts/mine.xml',
+                type: 'font',
+            },
             {
                 name: 'mainMap',
                 url: './assets/tilemap/IUTcampusMap.json',
@@ -31,13 +36,13 @@ class MainScene extends Scene {
         this.addEntity({ layer: 'Objects', entity: this.#player });
         this.noman = new Noman({ name: 'noman' });
         this.addEntity({ layer: 'NPC', entity: this.noman });
-        this.prof = new Prof({name: 'prof'});
-        this.addEntity({layer: 'NPC', entity: this.prof});
-        this.akshar= new Akshar({name: 'akshar'});
-        this.addEntity({layer: 'NPC', entity: this.akshar});
-        this.abir= new Abir({name: 'abir'});
-        this.addEntity({layer: 'NPC', entity: this.abir});
-        
+        this.prof = new Prof({ name: 'prof' });
+        this.addEntity({ layer: 'NPC', entity: this.prof });
+        this.akshar = new Akshar({ name: 'akshar' });
+        this.addEntity({ layer: 'NPC', entity: this.akshar });
+        this.abir = new Abir({ name: 'abir' });
+        this.addEntity({ layer: 'NPC', entity: this.abir });
+
         const gameScreen = GameManager.instance.app.screen;
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
         this.#camera.centerOver(this.#player);
@@ -48,8 +53,20 @@ class MainScene extends Scene {
         PhysicsManager.instance.engine.gravity.y = 0;
 
         PhysicsManager.instance.events.addEventListener('enterMosque', this.mosqueEntry);
+        let nomanDialogue = ['hello', 'nice', 'goodbye'];
+		this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
+		this.initiateKeyboard();
 
     }
+
+    initiateKeyboard() {
+		Keyboard.key('a').addActionOnDown({
+			name: 'nextText',
+			action: () => {
+				this.dialogues.nextText();
+			},
+		});
+	}
 
     onUpdate(ticker) {
         super.onUpdate(ticker);
@@ -61,12 +78,11 @@ class MainScene extends Scene {
         super.onDestroy();
     }
 
-    mosqueEntry(){
-        console.log('kjbdkbfkj');
+    mosqueEntry() {
         const scenes = SceneManager.instance;
         scenes.stopScene();
         scenes.startScene(MosqueScene.name);
-        
+
     }
 }
 
