@@ -103,5 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-# Ignoring package-lock
-package-lock.json
+# Ignoring tiled projects
+assets\gameTiledProject.tiled-project
+assets\gameTiledProject.tiled-session
+assets\redesignedMiaam.tiled-session

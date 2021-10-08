@@ -1,5 +1,4 @@
 module.exports = {
-	mode: 'development',
 	target: 'web',
 	module: {
 		rules: [
