@@ -24,7 +24,8 @@ class MainScene extends Scene {
     }
     #player;
     #camera;
-
+    dialogues;
+    font = 'Minecraft';
     onStart() {
         super.onStart();
         const map = MainScene.assets.maps.mainMap;
@@ -37,6 +38,7 @@ class MainScene extends Scene {
         this.noman = new Noman({ name: 'noman' });
         this.addEntity({ layer: 'NPC', entity: this.noman });
         this.prof = new Prof({ name: 'prof' });
+        // console.log(this.prof.dialogues);
         this.addEntity({ layer: 'NPC', entity: this.prof });
         this.akshar = new Akshar({ name: 'akshar' });
         this.addEntity({ layer: 'NPC', entity: this.akshar });
@@ -53,20 +55,24 @@ class MainScene extends Scene {
         PhysicsManager.instance.engine.gravity.y = 0;
 
         PhysicsManager.instance.events.addEventListener('enterMosque', this.mosqueEntry);
-        let nomanDialogue = ['hello', 'nice', 'goodbye'];
-		this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
-		this.initiateKeyboard();
+        PhysicsManager.instance.events.addEventListener('talkToProf', this.talkToProf);
+        // this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
+        this.initiateKeyboard();
 
     }
 
     initiateKeyboard() {
-		Keyboard.key('a').addActionOnDown({
-			name: 'nextText',
-			action: () => {
-				this.dialogues.nextText();
-			},
-		});
-	}
+        Keyboard.key('e').addActionOnDown({
+            name: 'nextText',
+            action: () => {
+                this.dialogues.nextText();
+            },
+        });
+    }
+
+    talkToProf = () => {
+        this.dialogues = new Dialogue(this.prof.dialogues, this.font);
+    }
 
     onUpdate(ticker) {
         super.onUpdate(ticker);

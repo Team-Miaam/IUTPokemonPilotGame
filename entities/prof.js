@@ -11,6 +11,15 @@ class Prof extends Entity {
             },
         ],
     };
+    dialogues = [
+        'Professor oak must have sent you here',
+        'I am Ridwan Kabir',
+        'I am trying to make a pokemon sanctuary in IUT',
+        'Three of my students are helping me out',
+        'But I need you to check if they are up to',
+        'any good',
+        'report me ASAP'
+    ]
 
     onStart() {
         super.onStart();
