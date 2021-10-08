@@ -137,6 +137,17 @@
                  "height":0,
                  "id":9,
                  "name":"abir",
+                 "properties":[
+                        {
+                         "name":"isSensor",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"physics",
+                         "type":"bool",
+                         "value":true
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -156,6 +167,138 @@
                  "type":"bool",
                  "value":true
                 }],
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":13,
+         "name":"Events",
+         "objects":[
+                {
+                 "height":31.75,
+                 "id":12,
+                 "name":"enterMosque",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":64,
+                 "x":480.125,
+                 "y":863.875
+                }, 
+                {
+                 "height":32.5,
+                 "id":13,
+                 "name":"talkToProf",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":34,
+                 "x":330.25,
+                 "y":1152.5
+                }, 
+                {
+                 "height":44.75,
+                 "id":14,
+                 "name":"talkToAbir",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":45.75,
+                 "x":322.5,
+                 "y":841
+                }, 
+                {
+                 "height":42.25,
+                 "id":20,
+                 "name":"talkToAkshar",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":45,
+                 "x":1657.25,
+                 "y":288.25
+                }, 
+                {
+                 "height":31.5,
+                 "id":23,
+                 "name":"pokeball",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":25.25,
+                 "x":1702.5,
+                 "y":320.25
+                }, 
+                {
+                 "height":18.25,
+                 "id":25,
+                 "name":"rocket",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":1704.75,
+                 "y":284.25
+                }, 
+                {
+                 "height":19.8181818181818,
+                 "id":27,
+                 "name":"SouthCafe",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":20.3636363636364,
+                 "x":935.272727272727,
+                 "y":860.181818181818
+                }, 
+                {
+                 "height":18.5454545454545,
+                 "id":29,
+                 "name":"mosqu",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":20.9090909090909,
+                 "x":613.818181818182,
+                 "y":860.363636363636
+                }, 
+                {
+                 "height":45,
+                 "id":36,
+                 "name":"southHall",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":71.5,
+                 "x":1354.5,
+                 "y":1032.75
+                }, 
+                {
+                 "height":35.5,
+                 "id":37,
+                 "name":"NorthHall",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":60.25,
+                 "x":1649,
+                 "y":1042.25
+                }, 
+                {
+                 "height":43.8181818181818,
+                 "id":38,
+                 "name":"nothing",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":44,
+                 "x":1169.09090909091,
+                 "y":1824.90909090909
+                }],
+         "opacity":1,
          "type":"objectgroup",
          "visible":true,
          "x":0,
@@ -203,8 +346,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":13,
- "nextobjectid":10,
+ "nextlayerid":14,
+ "nextobjectid":39,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
