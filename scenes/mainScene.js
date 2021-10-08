@@ -1,9 +1,7 @@
-import { Scene, SceneManager, Camera } from 'miaam';
+import { Scene, SceneManager, Camera, GameManager } from 'miaam';
 import Box from '../entities/box';
 
 class MainScene extends Scene {
-    #player;
-    #camera;
     static preload = {
         assets: [
             {
@@ -14,6 +12,8 @@ class MainScene extends Scene {
         ],
         entities: []
     }
+    #player;
+    #camera;
 
     onStart() {
         super.onStart();
@@ -43,7 +43,7 @@ class MainScene extends Scene {
         this.#camera.follow(this.#player);
     }
 
-    onDestroy(){
+    onDestroy() {
         super.onDestroy();
     }
 }
