@@ -20,8 +20,6 @@ class MainScene extends Scene {
         const map = MainScene.assets.maps.mainMap;
         this.map = map;
 
-        const scenes = SceneManager.instance;
-        scenes.view = MainScene.name;
 
         this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
         // this.#player = new Player({ name: 'Ash' });
@@ -35,6 +33,8 @@ class MainScene extends Scene {
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
         this.#camera.centerOver(this.#player);
 
+        const scenes = SceneManager.instance;
+        scenes.view = MainScene.name;
 
     }
 
