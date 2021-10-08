@@ -2,6 +2,7 @@ import { Scene, SceneManager, Camera, GameManager, PhysicsManager } from 'miaam'
 import Box from '../entities/box';
 import Noman from '../entities/noman';
 import Player from '../entities/player';
+import Prof from '../entities/prof';
 
 class MainScene extends Scene {
     static preload = {
@@ -12,7 +13,7 @@ class MainScene extends Scene {
                 type: 'map',
             },
         ],
-        entities: [Player, Noman]
+        entities: [Player, Noman, Prof]
     }
     #player;
     #camera;
@@ -28,6 +29,8 @@ class MainScene extends Scene {
         this.addEntity({ layer: 'Objects', entity: this.#player });
         this.noman = new Noman({ name: 'noman' });
         this.addEntity({ layer: 'NPC', entity: this.noman });
+        this.prof = new Prof({name: 'prof'});
+        this.addEntity({layer: 'NPC', entity: this.prof});
 
         const gameScreen = GameManager.instance.app.screen;
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);

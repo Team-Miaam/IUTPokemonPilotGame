@@ -110,6 +110,39 @@
                  "width":0,
                  "x":506,
                  "y":924.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":7,
+                 "name":"prof",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":346.666666666667,
+                 "y":1168
+                }, 
+                {
+                 "height":0,
+                 "id":8,
+                 "name":"akshar",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1680,
+                 "y":309.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"abir",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":337.333333333333,
+                 "y":906.666666666667
                 }],
          "opacity":1,
          "properties":[
@@ -171,7 +204,7 @@
          "y":0
         }],
  "nextlayerid":13,
- "nextobjectid":7,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
