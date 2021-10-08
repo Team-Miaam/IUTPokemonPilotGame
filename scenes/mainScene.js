@@ -1,4 +1,5 @@
 import { Scene, SceneManager, Camera, GameManager, PhysicsManager } from 'miaam';
+import Akshar from '../entities/akshar';
 import Box from '../entities/box';
 import Noman from '../entities/noman';
 import Player from '../entities/player';
@@ -13,7 +14,7 @@ class MainScene extends Scene {
                 type: 'map',
             },
         ],
-        entities: [Player, Noman, Prof]
+        entities: [Player, Noman, Prof, Akshar]
     }
     #player;
     #camera;
@@ -31,6 +32,8 @@ class MainScene extends Scene {
         this.addEntity({ layer: 'NPC', entity: this.noman });
         this.prof = new Prof({name: 'prof'});
         this.addEntity({layer: 'NPC', entity: this.prof});
+        this.akshar= new Akshar({name: 'akshar'});
+        this.addEntity({layer: 'NPC', entity: this.akshar});
 
         const gameScreen = GameManager.instance.app.screen;
         this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
