@@ -11,6 +11,16 @@ class Noman extends Entity {
             },
         ],
     };
+    dialogues = [
+        'Who are you supposed to be',
+        'I predicted someone like you will come',
+        'But you are early.....',
+        ' *Sigh.. go to rocket and meet akshar',
+        'of course you dont know',
+        'Rocket will be at the North-east from here..',
+        'now stop wasting my time'
+    ]
+    defaultDialogue = [['If you want result then stop bothering'], ['where do i set the pokecenter..hmmmmm'], ['*silence*']];
 
     onStart() {
         super.onStart();

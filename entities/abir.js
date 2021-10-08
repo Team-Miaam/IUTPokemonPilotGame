@@ -12,6 +12,14 @@ class Abir extends Entity {
         ],
     };
 
+    dialogues = [
+        'hello there',
+        'this area is off limit',
+        'Sir sent you? hmmmmm quite a pickle that I am in',
+        'Go to the mosque and find Noman, he will help you'
+    ]
+    defaultDialogue = [['Stop bothering me'], ['why are you still here'], ['I want to sleep']];
+
     onStart() {
         super.onStart();
         const { abir } = Abir.assets.images;

@@ -11,12 +11,28 @@ class Akshar extends Entity {
             },
         ],
     };
+    Predialogues = [
+        'Yea I know who you are and what you want',
+        'But I will not spill the beans',
+        'Unless you tell me how many Lightposts are in the campus',
+    ]
+    defaultDialogue = [['Go on Adventure boy'], ['I hope you know how to count'], ['A nice opportuniuty to explore the red heaven']];
+
+    endDialogue = [
+        'Ok, i will show you', 'We are doing experiments on pokemons her',
+        'under the nose of our supervisor',
+        'These stuffs are quite illegal you know',
+        'You think you can stop us',
+        'Lets see which is faster',
+        'your pokeball or my 9mm bullet',
+        '*Bang!!*'
+    ]
 
     onStart() {
         super.onStart();
         const { akshar } = Akshar.assets.images;
         this.sprite = new Sprite(akshar.texture);
-        this.body = Bodies.rectangle(0,0, 32, 32, {isStatic: true});
+        this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
     }
 }
 export default Akshar;

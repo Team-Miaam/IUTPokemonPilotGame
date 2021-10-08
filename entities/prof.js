@@ -20,6 +20,7 @@ class Prof extends Entity {
         'any good',
         'report me ASAP'
     ]
+    defaultDialogue = [['Have you met them yet?'], ['Did you do the investigation?'], ['did you do what I asked?']];
 
     onStart() {
         super.onStart();
