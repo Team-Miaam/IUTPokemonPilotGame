@@ -76,6 +76,17 @@
                  "width":0,
                  "x":346,
                  "y":1832
+                }, 
+                {
+                 "height":0,
+                 "id":4,
+                 "name":"noman",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":338,
+                 "y":1420.66666666667
                 }],
          "opacity":1,
          "properties":[
@@ -132,7 +143,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":3,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
