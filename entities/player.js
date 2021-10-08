@@ -18,7 +18,7 @@ class Player extends Entity {
 		const { playerSpriteAnimationSheet } = Player.assets.animations;
 		this.sprite = new AnimatedSpriteWState(playerSpriteAnimationSheet);
 		this.sprite.animationSpeed = 0.1;
-		this.sprite.anchor.set(0, 0.5);
+		this.sprite.anchor.set(0, .5);
 		this.setupEventListeners();
 		this.setupBody();
 	}

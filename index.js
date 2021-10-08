@@ -1,6 +1,7 @@
 import { GameManager, SceneManager } from 'miaam';
 
 import MainScene from './scenes/mainScene.js';
+import MosqueScene from './scenes/mosqueScene.js';
 
 const game = GameManager.instance;
 const scenes = SceneManager.instance;
@@ -14,6 +15,8 @@ game.createWindow({
 });
 
 scenes.addScene(MainScene);
-scenes.startScene(MainScene.name);
+scenes.addScene(MosqueScene);
+// scenes.startScene(MainScene.name);
+scenes.startScene(MosqueScene.name);
 
 document.body.appendChild(game.window);
