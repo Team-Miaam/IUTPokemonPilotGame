@@ -1,7 +1,9 @@
-import { Entity, Keyboard, AnimatedSpriteWState, Bodies } from 'miaam';
+import { Entity, Keyboard, AnimatedSpriteWState, Bodies, PhysicsManager, Dialogue } from 'miaam';
 
 class Player extends Entity {
 	#playerMovementVelocity = 1;
+
+	static lampCount = -1;
 
 	static preload = {
 		assets: [
@@ -36,6 +38,27 @@ class Player extends Entity {
 	setupEventListeners() {
 		// FIXME: Manage the event system with event registry
 		this.setupAnimationStateTransitions();
+		PhysicsManager.instance.events.addEventListener('collisionStart.lamp', ({ detail }) => {
+			const lamp = detail.pairs[0].bodyA;
+			if (lamp.visited === undefined && Player.lampCount >= 0) {
+				Player.lampCount += 1;
+				lamp.visited = true;
+				console.log(Player.lampCount);
+				if (Player.lampCount > 2) {
+					const dialouge = new Dialogue(
+						['*I think Akshar made a fool of me.*', '*He better has some \nexplanation for this*'],
+						'Minecraft'
+					);
+					setTimeout(() => {
+						dialouge.nextText();
+					}, 2000);
+					setTimeout(() => {
+						dialouge.nextText();
+					}, 4000);
+					Player.lampCount = -2;
+				}
+			}
+		});
 	}
 
 	setupBody() {

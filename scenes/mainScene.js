@@ -4,6 +4,7 @@ import Abir from '../entities/abir.js';
 import Akshar from '../entities/akshar.js';
 import Player from '../entities/player.js';
 import Prof from '../entities/prof.js';
+import EndScene from './endScene.js';
 
 import MosqueScene from './mosqueScene.js';
 class MainScene extends Scene {
@@ -39,7 +40,7 @@ class MainScene extends Scene {
 		// this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
 		this.#player = new Player({ name: 'player' });
 		this.addEntity({ layer: 'Objects', entity: this.#player });
-		this.#player.sprite.state = { state: 'idleUp' };
+		this.#player.sprite.state = { state: 'idleRight' };
 		// this.noman = new Noman({ name: 'noman' });
 		// this.addEntity({ layer: 'NPC', entity: this.noman });
 		this.prof = new Prof({ name: 'prof' });
@@ -72,8 +73,8 @@ class MainScene extends Scene {
 	}
 
 	initiateKeyboard() {
-		Keyboard.key('e').addActionOnDown({
-			name: 'nextText',
+		Keyboard.key(' ').addActionOnDown({
+			name: 'interact',
 			action: () => {
 				try {
 					this.dialogues.nextText();
@@ -85,7 +86,10 @@ class MainScene extends Scene {
 	}
 
 	setupEvents() {
-		PhysicsManager.instance.events.addEventListener('collisionStart.enterMosque', MainScene.mosqueEntry);
+		const mosqueEntryListener = PhysicsManager.instance.events.addEventListener(
+			'collisionStart.enterMosque',
+			MainScene.mosqueEntry
+		);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToProf', this.talkToProf);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAbir', this.talkToAbir);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAkshar', this.talkToAkshar);
@@ -96,6 +100,9 @@ class MainScene extends Scene {
 			this.dialogues.destroy();
 		});
 		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAkshar', () => {
+			if (Player.lampCount < 0) {
+				PhysicsManager.instance.events.removeEventListener('collisionStart.enterMosques', mosqueEntryListener, true);
+			}
 			this.dialogues.destroy();
 		});
 	}
@@ -132,6 +139,17 @@ class MainScene extends Scene {
 
 	talkToAkshar = () => {
 		this.dialogues = new Dialogue(this.akshar.dialogues, this.font);
+		if (Player.lampCount === -1) {
+			this.dialogues.onComplete = () => {
+				Player.lampCount = 0;
+			};
+		} else if (Player.lampCount === -2) {
+			this.dialogues.onComplete = () => {
+				const scenes = SceneManager.instance;
+				scenes.stopScene();
+				scenes.startScene(EndScene.name);
+			};
+		}
 	};
 }
 
