@@ -54,7 +54,5 @@
 		"webpack": "^5.38.1",
 		"webpack-cli": "^4.7.2"
 	},
-	"dependencies": {
-		"miaam": "git://github.com/Team-Miaam/RudimentaryMiaam.git#sceneTransitions"
-	}
+	"dependencies": {}
 }

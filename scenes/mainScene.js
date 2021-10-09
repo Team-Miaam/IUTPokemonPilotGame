@@ -4,6 +4,7 @@ import Abir from '../entities/abir.js';
 import Akshar from '../entities/akshar.js';
 import Player from '../entities/player.js';
 import Prof from '../entities/prof.js';
+import EndScene from './endScene.js';
 
 import MosqueScene from './mosqueScene.js';
 class MainScene extends Scene {
@@ -101,7 +102,6 @@ class MainScene extends Scene {
 		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAkshar', () => {
 			if (Player.lampCount < 0) {
 				PhysicsManager.instance.events.removeEventListener('collisionStart.enterMosques', mosqueEntryListener, true);
-				Player.lampCount = 0;
 			}
 			this.dialogues.destroy();
 		});
@@ -139,6 +139,17 @@ class MainScene extends Scene {
 
 	talkToAkshar = () => {
 		this.dialogues = new Dialogue(this.akshar.dialogues, this.font);
+		if (Player.lampCount === -1) {
+			this.dialogues.onComplete = () => {
+				Player.lampCount = 0;
+			};
+		} else if (Player.lampCount === -2) {
+			this.dialogues.onComplete = () => {
+				const scenes = SceneManager.instance;
+				scenes.stopScene();
+				scenes.startScene(EndScene.name);
+			};
+		}
 	};
 }
 

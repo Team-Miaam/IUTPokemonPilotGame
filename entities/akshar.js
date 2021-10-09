@@ -12,6 +12,8 @@ class Akshar extends Entity {
 		],
 	};
 
+	state = 1;
+
 	Predialogues = [
 		'Yea I know who you are and what you want',
 		'But I will not spill the beans',
