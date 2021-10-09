@@ -8,12 +8,10 @@ body {
 }
 
 #canvas {
-	border: 5px;
-	border-style: solid;
 	display: block;
 	margin: 0;
 	position: absolute;
 	top: 2%;
 	left: 25%;
-	/* transform: translate(-50%, -50%);
- */}
+	/* transform: translate(-50%, -50%); */
+}
