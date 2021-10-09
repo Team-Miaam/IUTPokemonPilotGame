@@ -1,0 +1,14 @@
+{ "columns":3,
+ "image":"..\/images\/nomanSprite.png",
+ "imageheight":64,
+ "imagewidth":96,
+ "margin":0,
+ "name":"nomanAnimation",
+ "spacing":0,
+ "tilecount":3,
+ "tiledversion":"1.7.2",
+ "tileheight":64,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}
