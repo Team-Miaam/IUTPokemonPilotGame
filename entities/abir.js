@@ -1,30 +1,41 @@
-import { Entity, Sprite, Bodies } from "miaam";
+import { Entity, Sprite, Bodies } from 'miaam';
 
 class Abir extends Entity {
+	static preload = {
+		assets: [
+			{
+				name: 'abir',
+				url: './assets/images/Abir.png',
+				type: 'image',
+			},
+		],
+	};
 
-    static preload = {
-        assets: [
-            {
-                name: 'abir',
-                url: './assets/images/Abir.png',
-                type: 'image',
-            },
-        ],
-    };
+	#dialogues = [
+		'Hello there',
+		'This area is off limits',
+		'Sir sent you? Hmmmmm quite a pickle that I am in',
+		'Go to the mosque and find Noman, he will help you',
+	];
 
-    dialogues = [
-        'hello there',
-        'this area is off limit',
-        'Sir sent you? hmmmmm quite a pickle that I am in',
-        'Go to the mosque and find Noman, he will help you'
-    ]
-    defaultDialogue = [['Stop bothering me'], ['why are you still here'], ['I want to sleep']];
+	dialoguesCopy = [...this.#dialogues];
 
-    onStart() {
-        super.onStart();
-        const { abir } = Abir.assets.images;
-        this.sprite = new Sprite(abir.texture);
-        this.body = Bodies.rectangle(0,0, 32, 32, {isStatic: true});
-    }
+	defaultDialogue = [['Stop bothering me'], ['Why are you still here?'], ['I want to sleep...']];
+
+	onStart() {
+		super.onStart();
+		const { abir } = Abir.assets.images;
+		this.sprite = new Sprite(abir.texture);
+		this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
+	}
+
+	get dialogues() {
+		if (this.dialoguesCopy.length !== 1) {
+			this.dialoguesCopy = [...this.#dialogues];
+			return this.dialoguesCopy;
+		}
+		const randomElement = this.defaultDialogue[Math.floor(Math.random() * this.defaultDialogue.length)];
+		return [...randomElement];
+	}
 }
 export default Abir;

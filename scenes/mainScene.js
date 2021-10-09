@@ -2,9 +2,9 @@ import { Scene, SceneManager, Camera, GameManager, PhysicsManager, Dialogue, Key
 
 import Abir from '../entities/abir.js';
 import Akshar from '../entities/akshar.js';
-import Noman from '../entities/noman.js';
 import Player from '../entities/player.js';
 import Prof from '../entities/prof.js';
+
 import MosqueScene from './mosqueScene.js';
 class MainScene extends Scene {
 	static preload = {
@@ -20,7 +20,7 @@ class MainScene extends Scene {
 				type: 'map',
 			},
 		],
-		entities: [Player, Noman, Prof, Akshar, Abir],
+		entities: [Player, Prof, Akshar, Abir],
 	};
 
 	#player;
@@ -39,10 +39,9 @@ class MainScene extends Scene {
 		// this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
 		this.#player = new Player({ name: 'player' });
 		this.addEntity({ layer: 'Objects', entity: this.#player });
-		this.noman = new Noman({ name: 'noman' });
-		this.addEntity({ layer: 'NPC', entity: this.noman });
+		// this.noman = new Noman({ name: 'noman' });
+		// this.addEntity({ layer: 'NPC', entity: this.noman });
 		this.prof = new Prof({ name: 'prof' });
-		// console.log(this.prof.dialogues);
 		this.addEntity({ layer: 'NPC', entity: this.prof });
 		this.akshar = new Akshar({ name: 'akshar' });
 		this.addEntity({ layer: 'NPC', entity: this.akshar });
@@ -57,11 +56,18 @@ class MainScene extends Scene {
 		scenes.view = MainScene.name;
 		scenes.world = MainScene.name;
 		PhysicsManager.instance.engine.gravity.y = 0;
-
-		PhysicsManager.instance.events.addEventListener('enterMosque', MainScene.mosqueEntry);
-		PhysicsManager.instance.events.addEventListener('talkToProf', this.talkToProf);
-		// this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
 		this.initiateKeyboard();
+		this.setupEvents();
+	}
+
+	onUpdate(ticker) {
+		super.onUpdate(ticker);
+		this.#camera.follow(this.#player);
+		PhysicsManager.instance.update();
+	}
+
+	onDestroy() {
+		super.onDestroy();
 	}
 
 	initiateKeyboard() {
@@ -73,18 +79,16 @@ class MainScene extends Scene {
 		});
 	}
 
-	talkToProf = () => {
-		this.dialogues = new Dialogue(this.prof.dialogues, this.font);
-	};
-
-	onUpdate(ticker) {
-		super.onUpdate(ticker);
-		this.#camera.follow(this.#player);
-		PhysicsManager.instance.update();
-	}
-
-	onDestroy() {
-		super.onDestroy();
+	setupEvents() {
+		PhysicsManager.instance.events.addEventListener('collisionStart.enterMosque', MainScene.mosqueEntry);
+		PhysicsManager.instance.events.addEventListener('collisionStart.talkToProf', this.talkToProf);
+		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAbir', this.talkToAbir);
+		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToProf', () => {
+			this.dialogues.destroy();
+		});
+		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAbir', () => {
+			this.dialogues.destroy();
+		});
 	}
 
 	static mosqueEntry() {
@@ -108,6 +112,15 @@ class MainScene extends Scene {
 			}
 		});
 	}
+
+	talkToProf = () => {
+		this.dialogues = new Dialogue(this.prof.dialogues, this.font);
+	};
+
+	talkToAbir = () => {
+		console.log('aaa');
+		this.dialogues = new Dialogue(this.abir.dialogues, this.font);
+	};
 }
 
 export default MainScene;

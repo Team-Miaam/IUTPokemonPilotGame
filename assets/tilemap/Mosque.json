@@ -129,15 +129,15 @@
                  "y":269.25
                 }, 
                 {
-                 "height":51,
+                 "height":83.6154554877346,
                  "id":7,
                  "name":"talkToNoman",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":57,
-                 "x":169.5,
-                 "y":125.833333333333
+                 "width":75.79534723022,
+                 "x":157.891109063688,
+                 "y":128.044550654535
                 }],
          "opacity":1,
          "properties":[

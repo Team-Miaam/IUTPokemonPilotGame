@@ -96,23 +96,6 @@
          "objects":[
                 {
                  "height":0,
-                 "id":5,
-                 "name":"noman",
-                 "properties":[
-                        {
-                         "name":"physics",
-                         "type":"bool",
-                         "value":true
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":506,
-                 "y":924.666666666667
-                }, 
-                {
-                 "height":0,
                  "id":7,
                  "name":"prof",
                  "rotation":0,
@@ -152,8 +135,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":343.333333333333,
-                 "y":863.666666666667
+                 "x":433.833333333333,
+                 "y":879.666666666667
                 }],
          "opacity":1,
          "properties":[
@@ -178,15 +161,15 @@
          "name":"Events",
          "objects":[
                 {
-                 "height":31.75,
+                 "height":16.75,
                  "id":12,
                  "name":"enterMosque",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":64,
-                 "x":480.125,
-                 "y":863.875
+                 "width":28.5,
+                 "x":497.125,
+                 "y":855.375
                 }, 
                 {
                  "height":32.5,
@@ -200,15 +183,15 @@
                  "y":1152.5
                 }, 
                 {
-                 "height":44.75,
+                 "height":65.75,
                  "id":14,
                  "name":"talkToAbir",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":45.75,
-                 "x":322.5,
-                 "y":841
+                 "width":49.75,
+                 "x":408.5,
+                 "y":856.5
                 }, 
                 {
                  "height":42.25,
