@@ -40,7 +40,7 @@ class MainScene extends Scene {
 		// this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
 		this.#player = new Player({ name: 'player' });
 		this.addEntity({ layer: 'Objects', entity: this.#player });
-		this.#player.sprite.state = { state: 'idleUp' };
+		this.#player.sprite.state = { state: 'idleRight' };
 		// this.noman = new Noman({ name: 'noman' });
 		// this.addEntity({ layer: 'NPC', entity: this.noman });
 		this.prof = new Prof({ name: 'prof' });
