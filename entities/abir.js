@@ -26,7 +26,8 @@ class Abir extends Entity {
 		super.onStart();
 		const { abir } = Abir.assets.images;
 		this.sprite = new Sprite(abir.texture);
-		this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
+		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+		this.sprite.anchor.set(0, 0.5);
 	}
 
 	get dialogues() {

@@ -26,7 +26,7 @@ class Akshar extends Entity {
 	endDialogue = [
 		'Ok, i will show you',
 		'We are doing experiments on pokemons here',
-        'creating new hybrid pokemons', 
+		'creating new hybrid pokemons',
 		'under the nose of our supervisor',
 		'These stuffs are quite illegal you know',
 		'You think you can stop us',
@@ -39,7 +39,8 @@ class Akshar extends Entity {
 		super.onStart();
 		const { akshar } = Akshar.assets.images;
 		this.sprite = new Sprite(akshar.texture);
-		this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
+		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+		this.sprite.anchor.set(0, 0.5);
 	}
 }
 export default Akshar;

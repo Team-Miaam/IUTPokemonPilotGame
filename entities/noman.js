@@ -13,7 +13,7 @@ class Noman extends Entity {
 
 	#dialogues = [
 		'Who are you supposed to be?',
-        'So you met abir',
+		'So you met Abir',
 		'I predicted someone like you will come',
 		'But you are early.....',
 		'*Sigh.. go to rocket and meet Akshar',
@@ -24,17 +24,14 @@ class Noman extends Entity {
 
 	dialoguesCopy = [...this.#dialogues];
 
-	defaultDialogue = [
-		['I should make gyms illegal here'],
-		['Where do i set the pokecenter...hmmmmm'],
-		['*SILENCE*'],
-	];
+	defaultDialogue = [['I should make gyms illegal here'], ['Where do i set the pokecenter...hmmmmm'], ['*SILENCE*']];
 
 	onStart() {
 		super.onStart();
 		const { noman } = Noman.assets.images;
 		this.sprite = new Sprite(noman.texture);
-		this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
+		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+		this.sprite.anchor.set(0.2, 0.75);
 	}
 
 	get dialogues() {
