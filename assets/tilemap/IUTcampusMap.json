@@ -74,8 +74,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":351.545454545455,
-                 "y":997.090909090909
+                 "x":1683.75,
+                 "y":394.25
                 }],
          "opacity":1,
          "properties":[
@@ -109,17 +109,6 @@
                  "height":0,
                  "id":9,
                  "name":"abir",
-                 "properties":[
-                        {
-                         "name":"isSensor",
-                         "type":"bool",
-                         "value":true
-                        }, 
-                        {
-                         "name":"physics",
-                         "type":"bool",
-                         "value":true
-                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -194,15 +183,15 @@
                  "y":856.272727272727
                 }, 
                 {
-                 "height":42.25,
+                 "height":71.75,
                  "id":20,
                  "name":"talkToAkshar",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":45,
-                 "x":1657.25,
-                 "y":288.25
+                 "width":22.75,
+                 "x":1675.5,
+                 "y":294.75
                 }, 
                 {
                  "height":31.5,

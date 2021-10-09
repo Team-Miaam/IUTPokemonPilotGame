@@ -87,10 +87,14 @@ class MainScene extends Scene {
 		PhysicsManager.instance.events.addEventListener('collisionStart.enterMosque', MainScene.mosqueEntry);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToProf', this.talkToProf);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAbir', this.talkToAbir);
+		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAkshar', this.talkToAkshar);
 		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToProf', () => {
 			this.dialogues.destroy();
 		});
 		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAbir', () => {
+			this.dialogues.destroy();
+		});
+		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAkshar', () => {
 			this.dialogues.destroy();
 		});
 	}
@@ -122,8 +126,11 @@ class MainScene extends Scene {
 	};
 
 	talkToAbir = () => {
-		console.log('aaa');
 		this.dialogues = new Dialogue(this.abir.dialogues, this.font);
+	};
+
+	talkToAkshar = () => {
+		this.dialogues = new Dialogue(this.akshar.dialogues, this.font);
 	};
 }
 
