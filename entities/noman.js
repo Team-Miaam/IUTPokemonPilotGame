@@ -1,12 +1,12 @@
-import { Entity, Sprite, Bodies } from 'miaam';
+import { Entity, Sprite, Bodies, AnimatedSpriteWState } from 'miaam';
 
 class Noman extends Entity {
 	static preload = {
 		assets: [
 			{
 				name: 'noman',
-				url: './assets/images/Noman.png',
-				type: 'image',
+				url: './assets/animation/nomanAnimation.json',
+				type: 'animation',
 			},
 		],
 	};
@@ -28,8 +28,10 @@ class Noman extends Entity {
 
 	onStart() {
 		super.onStart();
-		const { noman } = Noman.assets.images;
-		this.sprite = new Sprite(noman.texture);
+		const { noman } = Noman.assets.animations;
+		this.sprite = new AnimatedSpriteWState(noman);
+		this.sprite.animationSpeed = 0.2;
+
 		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
 		this.sprite.anchor.set(0.2, 0.75);
 	}

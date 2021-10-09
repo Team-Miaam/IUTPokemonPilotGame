@@ -1,12 +1,12 @@
-import { Entity, Sprite, Bodies } from 'miaam';
+import { Entity, Sprite, Bodies, AnimatedSpriteWState } from 'miaam';
 
 class Abir extends Entity {
 	static preload = {
 		assets: [
 			{
 				name: 'abir',
-				url: './assets/images/Abir.png',
-				type: 'image',
+				url: './assets/animation/abirAnimation.json',
+				type: 'animation',
 			},
 		],
 	};
@@ -24,9 +24,10 @@ class Abir extends Entity {
 
 	onStart() {
 		super.onStart();
-		const { abir } = Abir.assets.images;
-		this.sprite = new Sprite(abir.texture);
+		const { abir } = Abir.assets.animations;
+		this.sprite = new AnimatedSpriteWState(abir);
 		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+		this.sprite.animationSpeed = 0.2;
 		this.sprite.anchor.set(0, 0.5);
 	}
 

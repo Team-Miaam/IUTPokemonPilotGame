@@ -1,12 +1,12 @@
-import { Entity, Sprite, Bodies } from 'miaam';
+import { Entity, Sprite, Bodies, AnimatedSpriteWState } from 'miaam';
 
 class Prof extends Entity {
 	static preload = {
 		assets: [
 			{
 				name: 'prof',
-				url: './assets/images/professor.png',
-				type: 'image',
+				url: './assets/animation/profAnimation.json',
+				type: 'animation',
 			},
 		],
 	};
@@ -30,9 +30,13 @@ class Prof extends Entity {
 
 	onStart() {
 		super.onStart();
-		const { prof } = Prof.assets.images;
-		this.sprite = new Sprite(prof.texture);
-		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+
+		const { prof} = Prof.assets.animations;
+		this.sprite = new AnimatedSpriteWState(prof);
+		this.sprite.state = { state: 'idle' };
+		this.sprite.animationSpeed = 0.2;
+		
+        this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
 		this.sprite.anchor.set(0, 0.5);
 	}
 

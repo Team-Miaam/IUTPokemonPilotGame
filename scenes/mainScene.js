@@ -122,7 +122,8 @@ class MainScene extends Scene {
 	}
 
 	talkToProf = () => {
-		this.dialogues = new Dialogue(this.prof.dialogues, this.font);
+		console.log('ffasasd');
+        this.dialogues = new Dialogue(this.prof.dialogues, this.font);
 	};
 
 	talkToAbir = () => {

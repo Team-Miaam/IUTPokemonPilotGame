@@ -23,7 +23,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/tilesets\/nomanAnimation.json"
+         "source":"..\/tilesets\/nomanStrip.json"
         }],
  "tilewidth":32,
  "type":"map",

@@ -1,12 +1,12 @@
-import { Entity, Sprite, Bodies } from 'miaam';
+import { Entity, Sprite, Bodies, AnimatedSpriteWState } from 'miaam';
 
 class Akshar extends Entity {
 	static preload = {
 		assets: [
 			{
 				name: 'akshar',
-				url: './assets/images/akshar.png',
-				type: 'image',
+				url: './assets/animation/aksharAnimation.json',
+				type: 'animation',
 			},
 		],
 	};
@@ -52,8 +52,9 @@ class Akshar extends Entity {
 
 	onStart() {
 		super.onStart();
-		const { akshar } = Akshar.assets.images;
-		this.sprite = new Sprite(akshar.texture);
+		const { akshar } = Akshar.assets.animations;
+		this.sprite = new AnimatedSpriteWState(akshar);
+		this.sprite.animationSpeed = .2;
 		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
 		this.sprite.anchor.set(0, 0.5);
 	}
