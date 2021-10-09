@@ -56,6 +56,6 @@
 		"webpack-cli": "^4.7.2"
 	},
 	"dependencies": {
-		"miaam": "git://github.com/Team-Miaam/RudimentaryMiaam.git#sceneTransitions"
+		"miaam": "git://github.com/Team-Miaam/RudimentaryMiaam.git"
 	}
 }
