@@ -1,3 +1,5 @@
+const TerserPlugin = require('terser-webpack-plugin');
+
 module.exports = {
 	target: 'web',
 	module: {
@@ -15,5 +17,10 @@ module.exports = {
 	watchOptions: {
 		ignored: '/node_modules/',
 	},
+	optimization: {
+		minimize: true,
+		minimizer: [new TerserPlugin()],
+	},
+
 	// devtool: 'source-map',
 };
