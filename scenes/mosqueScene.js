@@ -68,7 +68,11 @@ class MosqueScene extends Scene {
 		Keyboard.key('e').addActionOnDown({
 			name: 'nextText',
 			action: () => {
-				this.dialogues.nextText();
+				try {
+					this.dialogues.nextText();
+				} catch (error) {
+					/** */
+				}
 			},
 		});
 	}
