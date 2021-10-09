@@ -13,7 +13,7 @@ class Noman extends Entity {
 
 	#dialogues = [
 		'Who are you supposed to be?',
-		'So you met abir',
+		'So you met Abir',
 		'I predicted someone like you will come',
 		'But you are early.....',
 		'*Sigh.. go to rocket and meet Akshar',
