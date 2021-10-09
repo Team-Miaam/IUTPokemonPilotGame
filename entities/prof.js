@@ -17,7 +17,7 @@ class Prof extends Entity {
 		'I am trying to make a pokemon sanctuary in IUT',
 		'Three of my students are helping me out',
 		'But I need you to check if they are up to any good',
-		'report me ASAP',
+		'report to me ASAP',
 	];
 
 	dialoguesCopy = [...this.#dialogues];
