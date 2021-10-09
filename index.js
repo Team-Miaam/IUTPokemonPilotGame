@@ -22,4 +22,4 @@ scenes.addScene(MosqueScene);
 scenes.addScene(EndScene);
 scenes.startScene(StartScene.name);
 
-document.body.appendChild(game.window);
+document.getElementById('canvas').appendChild(game.window);

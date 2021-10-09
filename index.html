@@ -5,11 +5,35 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Miaam Demo</title>
+	<link rel="stylesheet" href="index.css">
 </head>
 
-<body style="background-color: black;">
+<body>
+	<div id="canvas"></div>
 	<script src="./dist/index.js"></script>
+
+	<script>
+		// function for zooming by 175%
+		function setZoom(zoom, el) {
+
+			transformOrigin = [0, 0];
+			el = el || instance.getContainer();
+			var p = ["webkit", "moz", "ms", "o"],
+				s = "scale(" + zoom + ")",
+				oString = (transformOrigin[0] * 100) + "% " + (transformOrigin[1] * 100) + "%";
+
+			for (var i = 0; i < p.length; i++) {
+				el.style[p[i] + "Transform"] = s;
+				el.style[p[i] + "TransformOrigin"] = oString;
+			}
+
+			el.style["transform"] = s;
+			el.style["transformOrigin"] = oString;
+
+		}
+		setZoom(1.75, document.getElementById('canvas'));
+	</script>
 </body>
 
 </html>
