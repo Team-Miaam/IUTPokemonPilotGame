@@ -20,7 +20,7 @@ class Abir extends Entity {
 
 	dialoguesCopy = [...this.#dialogues];
 
-	defaultDialogue = [['Stop bothering me'], ['Why are you still here?'], ['I want to sleep...']];
+	defaultDialogue = [['Stop bothering me'], ['Praise the sun'], ['I want to sleep...']];
 
 	onStart() {
 		super.onStart();
