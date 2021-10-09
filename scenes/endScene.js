@@ -17,7 +17,6 @@ class EndScene extends Scene {
 	#camera;
 
 	onStart() {
-		console.log('nfksjbfkjsbdv');
 		super.onStart();
 		const map = EndScene.assets.maps.endSceneMap;
 		this.map = map;

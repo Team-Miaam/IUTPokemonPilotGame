@@ -74,11 +74,99 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":340,
-                 "y":1257.75
+                 "x":1632.5,
+                 "y":383.5
                 }],
          "opacity":1,
          "properties":[
+                {
+                 "name":"physics",
+                 "type":"bool",
+                 "value":true
+                }],
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":14,
+         "name":"lamps",
+         "objects":[
+                {
+                 "height":48,
+                 "id":43,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1561.25,
+                 "y":312.5
+                }, 
+                {
+                 "height":48,
+                 "id":44,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1561,
+                 "y":408.5
+                }, 
+                {
+                 "height":48,
+                 "id":45,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1561.5,
+                 "y":503.5
+                }, 
+                {
+                 "height":48,
+                 "id":46,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1561,
+                 "y":599
+                }, 
+                {
+                 "height":48,
+                 "id":47,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1561,
+                 "y":695.5
+                }, 
+                {
+                 "height":48,
+                 "id":48,
+                 "name":"lamp",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":47,
+                 "x":1562,
+                 "y":792
+                }],
+         "opacity":1,
+         "properties":[
+                {
+                 "name":"isSensor",
+                 "type":"bool",
+                 "value":true
+                }, 
                 {
                  "name":"physics",
                  "type":"bool",
@@ -329,8 +417,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":14,
- "nextobjectid":41,
+ "nextlayerid":15,
+ "nextobjectid":49,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",

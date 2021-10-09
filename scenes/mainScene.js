@@ -85,7 +85,10 @@ class MainScene extends Scene {
 	}
 
 	setupEvents() {
-		PhysicsManager.instance.events.addEventListener('collisionStart.enterMosque', MainScene.mosqueEntry);
+		const mosqueEntryListener = PhysicsManager.instance.events.addEventListener(
+			'collisionStart.enterMosque',
+			MainScene.mosqueEntry
+		);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToProf', this.talkToProf);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAbir', this.talkToAbir);
 		PhysicsManager.instance.events.addEventListener('collisionStart.talkToAkshar', this.talkToAkshar);
@@ -96,6 +99,10 @@ class MainScene extends Scene {
 			this.dialogues.destroy();
 		});
 		PhysicsManager.instance.events.addEventListener('collisionEnd.talkToAkshar', () => {
+			if (Player.lampCount < 0) {
+				PhysicsManager.instance.events.removeEventListener('collisionStart.enterMosques', mosqueEntryListener, true);
+				Player.lampCount = 0;
+			}
 			this.dialogues.destroy();
 		});
 	}
