@@ -13,6 +13,7 @@ class Noman extends Entity {
 
 	#dialogues = [
 		'Who are you supposed to be?',
+        'So you met abir',
 		'I predicted someone like you will come',
 		'But you are early.....',
 		'*Sigh.. go to rocket and meet Akshar',
@@ -24,7 +25,7 @@ class Noman extends Entity {
 	dialoguesCopy = [...this.#dialogues];
 
 	defaultDialogue = [
-		['If you want result then stop bothering'],
+		['I should make gyms illegal here'],
 		['Where do i set the pokecenter...hmmmmm'],
 		['*SILENCE*'],
 	];
