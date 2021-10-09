@@ -73,8 +73,8 @@ class MainScene extends Scene {
 	}
 
 	initiateKeyboard() {
-		Keyboard.key('e').addActionOnDown({
-			name: 'nextText',
+		Keyboard.key(' ').addActionOnDown({
+			name: 'interact',
 			action: () => {
 				try {
 					this.dialogues.nextText();

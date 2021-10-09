@@ -20,6 +20,6 @@ scenes.addScene(StartScene);
 scenes.addScene(MainScene);
 scenes.addScene(MosqueScene);
 scenes.addScene(EndScene);
-scenes.startScene(MainScene.name);
+scenes.startScene(StartScene.name);
 
 document.body.appendChild(game.window);

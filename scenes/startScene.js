@@ -1,5 +1,5 @@
-
-import { Scene, SceneManager, Camera, GameManager } from 'miaam';
+import { Scene, SceneManager, Camera, GameManager, Keyboard } from 'miaam';
+import MainScene from './mainScene';
 
 class StartScene extends Scene {
 	static preload = {
@@ -28,6 +28,13 @@ class StartScene extends Scene {
 
 		const scenes = SceneManager.instance;
 		scenes.view = StartScene.name;
+		Keyboard.key(' ').addActionOnDown({
+			name: 'interact',
+			action: () => {
+				scenes.stopScene();
+				scenes.startScene(MainScene.name);
+			},
+		});
 	}
 
 	onUpdate(ticker) {
