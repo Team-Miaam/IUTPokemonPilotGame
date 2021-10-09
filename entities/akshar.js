@@ -26,7 +26,7 @@ class Akshar extends Entity {
 	endDialogue = [
 		'Ok, i will show you',
 		'We are doing experiments on pokemons here',
-        'creating new hybrid pokemons', 
+		'creating new hybrid pokemons',
 		'under the nose of our supervisor',
 		'These stuffs are quite illegal you know',
 		'You think you can stop us',
