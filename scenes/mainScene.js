@@ -1,95 +1,113 @@
 import { Scene, SceneManager, Camera, GameManager, PhysicsManager, Dialogue, Keyboard } from 'miaam';
-import Abir from '../entities/abir';
-import Akshar from '../entities/akshar';
-import Box from '../entities/box';
-import Noman from '../entities/noman';
-import Player from '../entities/player';
-import Prof from '../entities/prof';
-import MosqueScene from './mosqueScene';
+
+import Abir from '../entities/abir.js';
+import Akshar from '../entities/akshar.js';
+import Noman from '../entities/noman.js';
+import Player from '../entities/player.js';
+import Prof from '../entities/prof.js';
+import MosqueScene from './mosqueScene.js';
 class MainScene extends Scene {
-    static preload = {
-        assets: [
-            {
-                name: 'minecraft',
-                url: './assets/fonts/mine.xml',
-                type: 'font',
-            },
-            {
-                name: 'mainMap',
-                url: './assets/tilemap/IUTcampusMap.json',
-                type: 'map',
-            },
-        ],
-        entities: [Player, Noman, Prof, Akshar, Abir]
-    }
-    #player;
-    #camera;
-    dialogues;
-    font = 'Minecraft';
-    onStart() {
-        super.onStart();
-        const map = MainScene.assets.maps.mainMap;
-        this.map = map;
+	static preload = {
+		assets: [
+			{
+				name: 'minecraft',
+				url: './assets/fonts/mine.xml',
+				type: 'font',
+			},
+			{
+				name: 'mainMap',
+				url: './assets/tilemap/IUTcampusMap.json',
+				type: 'map',
+			},
+		],
+		entities: [Player, Noman, Prof, Akshar, Abir],
+	};
 
+	#player;
 
-        // this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
-        this.#player = new Player({ name: 'player' });
-        this.addEntity({ layer: 'Objects', entity: this.#player });
-        this.noman = new Noman({ name: 'noman' });
-        this.addEntity({ layer: 'NPC', entity: this.noman });
-        this.prof = new Prof({ name: 'prof' });
-        // console.log(this.prof.dialogues);
-        this.addEntity({ layer: 'NPC', entity: this.prof });
-        this.akshar = new Akshar({ name: 'akshar' });
-        this.addEntity({ layer: 'NPC', entity: this.akshar });
-        this.abir = new Abir({ name: 'abir' });
-        this.addEntity({ layer: 'NPC', entity: this.abir });
+	#camera;
 
-        const gameScreen = GameManager.instance.app.screen;
-        this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
-        this.#camera.centerOver(this.#player);
+	dialogues;
 
-        const scenes = SceneManager.instance;
-        scenes.view = MainScene.name;
-        scenes.world = MainScene.name;
-        PhysicsManager.instance.engine.gravity.y = 0;
+	font = 'Minecraft';
 
-        PhysicsManager.instance.events.addEventListener('enterMosque', this.mosqueEntry);
-        PhysicsManager.instance.events.addEventListener('talkToProf', this.talkToProf);
-        // this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
-        this.initiateKeyboard();
+	onStart() {
+		super.onStart();
+		const map = MainScene.assets.maps.mainMap;
+		this.map = map;
 
-    }
+		// this.#player = new Box({ name: 'box', props: { x: 900, y: 410, width: 32, height: 32 } });
+		this.#player = new Player({ name: 'player' });
+		this.addEntity({ layer: 'Objects', entity: this.#player });
+		this.noman = new Noman({ name: 'noman' });
+		this.addEntity({ layer: 'NPC', entity: this.noman });
+		this.prof = new Prof({ name: 'prof' });
+		// console.log(this.prof.dialogues);
+		this.addEntity({ layer: 'NPC', entity: this.prof });
+		this.akshar = new Akshar({ name: 'akshar' });
+		this.addEntity({ layer: 'NPC', entity: this.akshar });
+		this.abir = new Abir({ name: 'abir' });
+		this.addEntity({ layer: 'NPC', entity: this.abir });
 
-    initiateKeyboard() {
-        Keyboard.key('e').addActionOnDown({
-            name: 'nextText',
-            action: () => {
-                this.dialogues.nextText();
-            },
-        });
-    }
+		const gameScreen = GameManager.instance.app.screen;
+		this.#camera = new Camera(this, gameScreen.width, gameScreen.height);
+		this.#camera.centerOver(this.#player);
 
-    talkToProf = () => {
-        this.dialogues = new Dialogue(this.prof.dialogues, this.font);
-    }
+		const scenes = SceneManager.instance;
+		scenes.view = MainScene.name;
+		scenes.world = MainScene.name;
+		PhysicsManager.instance.engine.gravity.y = 0;
 
-    onUpdate(ticker) {
-        super.onUpdate(ticker);
-        this.#camera.follow(this.#player);
-        PhysicsManager.instance.update();
-    }
+		PhysicsManager.instance.events.addEventListener('enterMosque', MainScene.mosqueEntry);
+		PhysicsManager.instance.events.addEventListener('talkToProf', this.talkToProf);
+		// this.dialogues = new Dialogue(nomanDialogue, 'Minecraft');
+		this.initiateKeyboard();
+	}
 
-    onDestroy() {
-        super.onDestroy();
-    }
+	initiateKeyboard() {
+		Keyboard.key('e').addActionOnDown({
+			name: 'nextText',
+			action: () => {
+				this.dialogues.nextText();
+			},
+		});
+	}
 
-    mosqueEntry() {
-        const scenes = SceneManager.instance;
-        scenes.stopScene();
-        scenes.startScene(MosqueScene.name);
+	talkToProf = () => {
+		this.dialogues = new Dialogue(this.prof.dialogues, this.font);
+	};
 
-    }
+	onUpdate(ticker) {
+		super.onUpdate(ticker);
+		this.#camera.follow(this.#player);
+		PhysicsManager.instance.update();
+	}
+
+	onDestroy() {
+		super.onDestroy();
+	}
+
+	static mosqueEntry() {
+		MainScene.changePlayerSpawnPosition();
+		const scenes = SceneManager.instance;
+		scenes.stopScene();
+		scenes.startScene(MosqueScene.name);
+	}
+
+	static changePlayerSpawnPosition() {
+		const { layers } = MainScene.assets.maps.mainMap.data;
+		layers.forEach((layer) => {
+			if (layer.name === 'Objects') {
+				const { objects } = layer;
+				objects.forEach((object) => {
+					if (object.name === 'player') {
+						object.x = 620;
+						object.y = 770;
+					}
+				});
+			}
+		});
+	}
 }
 
 export default MainScene;

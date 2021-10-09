@@ -17,8 +17,9 @@ class Player extends Entity {
 		super.onStart();
 		const { playerSpriteAnimationSheet } = Player.assets.animations;
 		this.sprite = new AnimatedSpriteWState(playerSpriteAnimationSheet);
+		this.sprite.state = { state: 'idleRight' };
 		this.sprite.animationSpeed = 0.1;
-		this.sprite.anchor.set(0, .5);
+		this.sprite.anchor.set(0, 0.5);
 		this.setupEventListeners();
 		this.setupBody();
 	}
