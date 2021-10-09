@@ -12,8 +12,10 @@ class Abir extends Entity {
 	};
 
 	#dialogues = [
-		'Hello there',
+		'Let me guess someone stole your sweetroll',
 		'This area is off limits',
+		'The Tree park is filled with ferocous beasts.. go away',
+		'Do not bother me, I am waiting for troubles here',
 		'Sir sent you? Hmmmmm quite a pickle that I am in',
 		'Go to the mosque and find Noman, he will help you',
 	];

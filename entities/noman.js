@@ -15,11 +15,14 @@ class Noman extends Entity {
 		'Who are you supposed to be?',
 		'So you met Abir',
 		'I predicted someone like you will come',
+		'I used to be an adventurer like you',
+		'then I took an arrow in the knee',
 		'But you are early.....',
 		'*Sigh.. go to rocket and meet Akshar',
 		'Of course you dont know',
 		'Rocket will be at the North-east from here',
 		'Now stop wasting my time',
+		'And exit using the door on your right'
 	];
 
 	dialoguesCopy = [...this.#dialogues];

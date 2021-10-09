@@ -17,17 +17,21 @@ class Akshar extends Entity {
 	Predialogues = [
 		'Yea I know who you are and what you want',
 		'But I will not spill the beans',
-		'Unless you tell me how many lamp posts are in the campus',
+		'But I might',
+		'one of the lamp posts here has a secret. Figure it out',
+		'then come back'
 	];
 
 	defaultDialogue = [
 		['Go on Adventure boy'],
-		['I hope you know how to count'],
-		['A nice opportuniuty to explore the red heaven'],
+		['there is no pokecenter here so be careful'],
+		['Do not jump in the bushes'],
 	];
 
 	endDialogue = [
-		'Ok, i will show you',
+		'okay okay I lied',
+		'but I wanted you to explore the Red Heaven',
+		'Now, i will show you',
 		'We are doing experiments on pokemons here',
 		'creating new hybrid pokemons',
 		'under the nose of our supervisor',

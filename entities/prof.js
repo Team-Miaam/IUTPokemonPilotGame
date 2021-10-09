@@ -12,7 +12,7 @@ class Prof extends Entity {
 	};
 
 	#dialogues = [
-		'Professor oak must have sent you here',
+		'Professor Oak must have sent you here',
 		'I am Ridwan Kabir',
 		'I am trying to make a pokemon sanctuary in IUT',
 		'Three of my students are helping me out',
