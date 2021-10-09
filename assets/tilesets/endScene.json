@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"..\/images\/Scene3.png",
+ "imageheight":514,
+ "imagewidth":514,
+ "margin":0,
+ "name":"endScene",
+ "spacing":0,
+ "tilecount":256,
+ "tiledversion":"1.7.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.6"
+}
