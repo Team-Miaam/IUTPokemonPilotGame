@@ -34,6 +34,7 @@ class MosqueScene extends Scene {
 		this.addEntity({ layer: 'Objects', entity: this.#player });
 		this.noman = new Noman({ name: 'noman' });
 		this.addEntity({ layer: 'NPC', entity: this.noman });
+		this.#player.sprite.state = { state: 'idleUp' };
 
 		const gameScreen = GameManager.instance.app.screen;
 		this.#camera = new Camera(this, gameScreen.width, gameScreen.height);

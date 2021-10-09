@@ -96,17 +96,6 @@
          "objects":[
                 {
                  "height":0,
-                 "id":7,
-                 "name":"prof",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":346.666666666667,
-                 "y":1168
-                }, 
-                {
-                 "height":0,
                  "id":8,
                  "name":"akshar",
                  "rotation":0,
@@ -135,8 +124,19 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":433.833333333333,
-                 "y":879.666666666667
+                 "x":346.416666666666,
+                 "y":867.416666666667
+                }, 
+                {
+                 "height":18.9091,
+                 "id":40,
+                 "name":"prof",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":20.3636,
+                 "x":325.8182,
+                 "y":1144.36363181818
                 }],
          "opacity":1,
          "properties":[
@@ -172,26 +172,26 @@
                  "y":855.375
                 }, 
                 {
-                 "height":32.5,
+                 "height":52.1363636363635,
                  "id":13,
                  "name":"talkToProf",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":34,
-                 "x":330.25,
-                 "y":1152.5
+                 "width":35.8181818181818,
+                 "x":321.704545454545,
+                 "y":1143.77272727273
                 }, 
                 {
-                 "height":65.75,
+                 "height":71,
                  "id":14,
                  "name":"talkToAbir",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":49.75,
-                 "x":408.5,
-                 "y":856.5
+                 "width":37.3863636363636,
+                 "x":345.181818181818,
+                 "y":856.272727272727
                 }, 
                 {
                  "height":42.25,
@@ -341,7 +341,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":39,
+ "nextobjectid":41,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",

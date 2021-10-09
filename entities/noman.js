@@ -33,7 +33,8 @@ class Noman extends Entity {
 		super.onStart();
 		const { noman } = Noman.assets.images;
 		this.sprite = new Sprite(noman.texture);
-		this.body = Bodies.rectangle(0, 0, 32, 32, { isStatic: true });
+		this.body = Bodies.rectangle(0, 0, 32, 64, { isStatic: true });
+		this.sprite.anchor.set(0.2, 0.75);
 	}
 
 	get dialogues() {
