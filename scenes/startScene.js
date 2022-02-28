@@ -1,4 +1,5 @@
-import { Scene, SceneManager, Camera, GameManager, Keyboard } from 'miaam';
+import { Scene, SceneManager, Camera, GameManager, Keyboard, Graphics, Audio } from 'miaam';
+import { Sound } from '@pixi/sound';
 import MainScene from './mainScene';
 
 class StartScene extends Scene {
@@ -35,6 +36,24 @@ class StartScene extends Scene {
 				scenes.startScene(MainScene.name);
 			},
 		});
+
+		const app = GameManager.instance.app;
+
+		const clip = new Audio({ url: '/assets/sounds/testSound.mp3' });
+
+		const button = new Graphics();
+		button.beginFill(0xde3249);
+		button.drawRect(50, 50, 100, 100);
+		button.endFill();
+
+		button.interactive = true;
+		button.buttonMode = true;
+		button.on('pointerdown', () => {
+			console.log('clicked');
+			clip.play();
+		});
+
+		app.stage.addChild(button);
 	}
 
 	onUpdate(ticker) {
