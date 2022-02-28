@@ -1,4 +1,4 @@
-import { Scene, SceneManager, Camera, GameManager, PhysicsManager, Dialogue, Keyboard } from 'miaam';
+import { Scene, SceneManager, Camera, GameManager, PhysicsManager, Dialogue, Keyboard, Audio } from 'miaam';
 
 import Abir from '../entities/abir.js';
 import Akshar from '../entities/akshar.js';
@@ -27,6 +27,8 @@ class MainScene extends Scene {
 	#player;
 
 	#camera;
+
+	pop;
 
 	dialogues;
 
@@ -60,6 +62,13 @@ class MainScene extends Scene {
 		PhysicsManager.instance.engine.gravity.y = 0;
 		this.initiateKeyboard();
 		this.setupEvents();
+
+		const bgclip = new Audio({ url: '/assets/sounds/ingame.mp3' });
+		const playbg = setTimeout(() => {
+			bgclip.play();
+		}, 1000);
+
+		this.pop = new Audio({ url: '/assets/sounds/pop.flac' });
 	}
 
 	onUpdate(ticker) {
@@ -77,6 +86,7 @@ class MainScene extends Scene {
 			name: 'interact',
 			action: () => {
 				try {
+					// this.pop.play();
 					this.dialogues.nextText();
 				} catch (error) {
 					/**/

@@ -41,16 +41,10 @@ class StartScene extends Scene {
 		const app = GameManager.instance.app;
 
 		const clip = new Audio({ url: '/assets/sounds/opening.mp3' });
-
 		const button = new Graphics();
 		button.beginFill(0xde3249);
 		button.drawRect(50, 50, 100, 100);
 		button.endFill();
-
-		const button2 = new Graphics();
-		button2.beginFill(0xffffff);
-		button2.drawRect(200, 50, 100, 100);
-		button2.endFill();
 
 		button.interactive = true;
 		button.buttonMode = true;
@@ -58,16 +52,8 @@ class StartScene extends Scene {
 			console.log('clicked');
 			clip.play();
 		});
-		button2.interactive = true;
-		button2.buttonMode = true;
-		button2.on('pointerdown', () => {
-			console.log('clicked');
-			clip.clip.pause();
-			console.log(clip.clip.paused);
-		});
 
 		app.stage.addChild(button);
-		app.stage.addChild(button2);
 	}
 
 	onUpdate(ticker) {
