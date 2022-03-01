@@ -55,6 +55,7 @@
 		"webpack-cli": "^4.7.2"
 	},
 	"dependencies": {
+		"@pixi/events": "^6.2.2",
 		"@pixi/sound": "^4.2.0"
 	}
 }
