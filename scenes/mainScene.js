@@ -87,7 +87,11 @@ class MainScene extends Scene {
 			action: () => {
 				try {
 					// this.pop.play();
-					this.dialogues.nextText();
+					const callback = () => {
+						this.pop.play();
+						console.log('sound played');
+					};
+					this.dialogues.nextText(callback); // pop.play();
 				} catch (error) {
 					/**/
 				}
