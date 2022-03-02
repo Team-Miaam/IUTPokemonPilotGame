@@ -30,6 +30,10 @@ class StartScene extends Scene {
 		HSa: { start: 7.45, end: 8.45 },
 	};
 
+	pianoKeys;
+
+	volume;
+
 	onStart() {
 		super.onStart();
 		const map = StartScene.assets.maps.startSceneMap;
@@ -53,7 +57,8 @@ class StartScene extends Scene {
 */
 		const app = GameManager.instance.app;
 
-		const volume = new Slider(app, { xpos: 0, ypos: 0 }, { width: 100, height: 20 });
+		this.volume = new Slider(app, { xpos: 150, ypos: 30 }, { width: 200, height: 10 });
+		this.volume.handle = { radius: 20 };
 
 		const bg = new Graphics();
 		bg.beginFill(0x0f0014); // #0F0014
@@ -73,6 +78,8 @@ class StartScene extends Scene {
 		const as = new Audio({ url: '/assets/sounds/piano/351319__zodoz__a-6.wav', loop: false });
 		const b = new Audio({ url: '/assets/sounds/piano/351317__zodoz__b6.wav', loop: false });
 		const ch = new Audio({ url: '/assets/sounds/piano/351323__zodoz__c6.wav', loop: false });
+
+		this.pianoKeys = [c, cs, d, ds, e, f, fs, g, gs, a, as, b, ch];
 
 		const clip = new Audio({ url: '/assets/sounds/pop.flac', loop: true });
 		clip.loop = true;
@@ -263,7 +270,7 @@ class StartScene extends Scene {
 			console.log('clicked');
 			a.play();
 		});
-		buttonF.on('pointerup', () => {
+		buttonA.on('pointerup', () => {
 			buttonA.tint = 0xffffff;
 			a.pause();
 		});
@@ -361,7 +368,7 @@ class StartScene extends Scene {
 			buttC.tint = 0xffffff;
 			cs.pause();
 		});
-Keyboard.key('w').addActionOnDown({
+		Keyboard.key('w').addActionOnDown({
 			name: 'interact',
 			action: () => {
 				buttC.tint = 0x1fff00;
@@ -391,7 +398,7 @@ Keyboard.key('w').addActionOnDown({
 			buttD.tint = 0xffffff;
 			ds.pause();
 		});
-Keyboard.key('e').addActionOnDown({
+		Keyboard.key('e').addActionOnDown({
 			name: 'interact',
 			action: () => {
 				buttD.tint = 0x1fff00;
@@ -421,7 +428,7 @@ Keyboard.key('e').addActionOnDown({
 			buttF.tint = 0xffffff;
 			fs.pause();
 		});
-Keyboard.key('t').addActionOnDown({
+		Keyboard.key('t').addActionOnDown({
 			name: 'interact',
 			action: () => {
 				buttF.tint = 0x1fff00;
@@ -452,7 +459,7 @@ Keyboard.key('t').addActionOnDown({
 			buttG.tint = 0xffffff;
 			gs.pause();
 		});
-Keyboard.key('y').addActionOnDown({
+		Keyboard.key('y').addActionOnDown({
 			name: 'interact',
 			action: () => {
 				buttG.tint = 0x1fff00;
@@ -482,7 +489,7 @@ Keyboard.key('y').addActionOnDown({
 			buttA.tint = 0xffffff;
 			as.pause();
 		});
-Keyboard.key('u').addActionOnDown({
+		Keyboard.key('u').addActionOnDown({
 			name: 'interact',
 			action: () => {
 				buttA.tint = 0x1fff00;
@@ -498,9 +505,8 @@ Keyboard.key('u').addActionOnDown({
 			},
 		});
 		app.stage.addChild(
-			volume.slider,
+			this.volume.slider,
 			pianoBg,
-			button,
 			buttonD,
 			buttonE,
 			buttonC,
@@ -521,6 +527,10 @@ Keyboard.key('u').addActionOnDown({
 	onUpdate(ticker) {
 		super.onUpdate(ticker);
 		this.#camera.follow(this.#player);
+		for (let index = 0; index < this.pianoKeys.length; index += 1) {
+			const element = this.pianoKeys[index];
+			element.clip.volume = this.volume.value;
+		}
 	}
 
 	onDestroy() {
